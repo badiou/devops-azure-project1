@@ -103,8 +103,7 @@ NetworkWatcherRG      eastus      Succeeded
 
 - Result of the command `packer build server.json` 
   
-```
-ourobadiou@MacBook-Air-de-Badiou deploy-azure-infrastructure-udacity-project-1 % packer build server.json                                         
+```ourobadiou@MacBook-Air-de-Badiou deploy-azure-infrastructure-udacity-project-1 % packer build server.json                                         
 azure-arm: output will be in this color.
 
 ==> azure-arm: Running builder ...
@@ -186,6 +185,7 @@ ManagedImageName: myPackerImage
 ManagedImageId: /subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacityResourceGroup/providers/Microsoft.Compute/images/myPackerImage
 ManagedImageLocation: East US
 ```
+
 
 - Result of the command `terraform plan -out solution.plan`
   
