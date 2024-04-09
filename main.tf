@@ -6,8 +6,8 @@ resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
   location = var.location
   tags = {
-    project_name="udacity-project-1",
-	stage= "Submission"
+    project_name = "udacity-project-1",
+    stage        = "Submission"
   }
 }
 
@@ -17,8 +17,8 @@ resource "azurerm_virtual_network" "main" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   tags = {
-    project_name="udacity-project-1",
-	stage= "Submission"
+    project_name = "udacity-project-1",
+    stage        = "Submission"
   }
 }
 
@@ -28,8 +28,8 @@ resource "azurerm_public_ip" "main" {
   location            = azurerm_resource_group.main.location
   allocation_method   = "Static"
   tags = {
-    project_name="udacity-project-1",
-	stage= "Submission"
+    project_name = "udacity-project-1",
+    stage        = "Submission"
   }
 }
 
@@ -38,37 +38,35 @@ resource "azurerm_subnet" "internal" {
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["10.0.2.0/24"]
-  
 }
 
 resource "azurerm_network_interface" "main" {
-  name                = "${var.prefix}-nic"
+  count               = var.counter
+  name                = "${var.prefix}-nic-${count.index}"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   tags = {
-    project_name="udacity-project-1",
-	stage= "Submission"
+    project_name = "udacity-project-1",
+    stage        = "Submission"
   }
 
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.internal.id
     private_ip_address_allocation = "Dynamic"
-    
   }
-  
 }
 
 resource "azurerm_managed_disk" "main" {
-    name                 = "acctestmd"
-    location             = azurerm_resource_group.main.location
-    resource_group_name  = azurerm_resource_group.main.name
-    storage_account_type = "Standard_LRS"
-    create_option        = "Empty"
-    disk_size_gb         = "1"
-     tags = {
-    project_name="udacity-project-1",
-	stage= "Submission"
+  name                 = "acctestmd"
+  location             = azurerm_resource_group.main.location
+  resource_group_name  = azurerm_resource_group.main.name
+  storage_account_type = "Standard_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = "1"
+  tags = {
+    project_name = "udacity-project-1",
+    stage        = "Submission"
   }
 }
 
@@ -78,26 +76,24 @@ resource "azurerm_lb" "main" {
   location            = azurerm_resource_group.main.location
   sku                 = "Standard"
   tags = {
-    project_name="udacity-project-1",
-	stage= "Submission"
+    project_name = "udacity-project-1",
+    stage        = "Submission"
   }
 }
 
 resource "azurerm_linux_virtual_machine" "main" {
-    count = var.counter
-    name                            = "${var.prefix}-vm${count.index}"
-    resource_group_name             = azurerm_resource_group.main.name
-    location                        = azurerm_resource_group.main.location
-    size                            = "Standard_D2s_v3"
-    admin_username                  = "${var.admin_username}"
-    admin_password                  = "${var.admin_password}"
-    disable_password_authentication = false
-    network_interface_ids = [
-        azurerm_network_interface.main.id,
-    ]
-    tags = {
-    project_name="udacity-project-1",
-	tage= "Submission"
+  count                          = var.counter
+  name                           = "${var.prefix}-vm${count.index}"
+  resource_group_name            = azurerm_resource_group.main.name
+  location                       = azurerm_resource_group.main.location
+  size                           = "Standard_D2s_v3"
+  admin_username                 = var.admin_username
+  admin_password                 = var.admin_password
+  disable_password_authentication = false
+  network_interface_ids          = [azurerm_network_interface.main[count.index].id]
+  tags = {
+    project_name = "udacity-project-1",
+    stage        = "Submission"
   }
 
   source_image_reference {
@@ -105,7 +101,6 @@ resource "azurerm_linux_virtual_machine" "main" {
     offer     = "UbuntuServer"
     sku       = "18.04-LTS"
     version   = "latest"
-    
   }
 
   os_disk {
