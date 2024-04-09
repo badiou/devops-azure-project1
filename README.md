@@ -98,7 +98,7 @@ For this project, you will write a Packer template and a Terraform template to d
 ```
 10. result of the command 
 `az policy definition create --name tagging-policy --rules tagging_policy.json`
-````
+```
 {
   "description": null,
   "displayName": null,
@@ -141,7 +141,8 @@ For this project, you will write a Packer template and a Terraform template to d
 
 - Result of the command `packer build server.json` 
   
-```ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % packer build server.json                                         
+```
+ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % packer build server.json                                         
 azure-arm: output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
