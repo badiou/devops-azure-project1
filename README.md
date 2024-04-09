@@ -79,10 +79,10 @@ For this project, you will write a Packer template and a Terraform template to d
 7.  To delete all the resources you have deployed, you can issue the command `terraform destroy`.
 
 ## Output
-12. Below, you will find the list of results obtained after executing certain commands:
+8. Below, you will find the list of results obtained after executing certain commands:
 
 
-- Result of the command `az group create -n udacityResourceGroup -l eastus`
+9. Result of the command `az group create -n udacityResourceGroup -l eastus`
 ```
 {
   "id": "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacityResourceGroup",
@@ -96,7 +96,7 @@ For this project, you will write a Packer template and a Terraform template to d
   "type": "Microsoft.Resources/resourceGroups"
 }
 ```
-- result of the command 
+10. result of the command 
 `az policy definition create --name tagging-policy --rules tagging_policy.json`
 ````
 {
@@ -138,20 +138,11 @@ For this project, you will write a Packer template and a Terraform template to d
 }
 ```
 
-- Result of the command `az group list -o table`
-```
-Name                  Location    Status
---------------------  ----------  ---------
-udacityResourceGroup  eastus      Succeeded
-NetworkWatcherRG      eastus      Succeeded
-```
 
 - Result of the command `packer build server.json` 
   
-```
-ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % packer build server.json                                         
+```ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % packer build server.json                                         
 azure-arm: output will be in this color.
-
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Getting source image id for the deployment ...
