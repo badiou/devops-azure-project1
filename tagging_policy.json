@@ -1,0 +1,13 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "value": "[empty(field('tags'))]",
+                "equals": "true"
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}

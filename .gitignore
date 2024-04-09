@@ -1,0 +1,10 @@
+# Fichiers Terraform
+*.tfstate
+*.tfstate.*
+*.tfplan
+azure.ps1
+terraform.tfstate
+terraform.tfstate.backup
+azure.ps1
+# Répertoires Terraform
+.terraform/
