@@ -13,12 +13,12 @@ variable "location" {
 
 variable "admin_username" {
   description = "The admin username for the VM being created."
-  default= "admin"
+  default= "ourobadiou"
 }
 
 variable "admin_password" {
   description = "The password for the VM being created."
-  default="P@ssw0rd"
+  default="B@diou2023"
 }
 
 variable "counter" {

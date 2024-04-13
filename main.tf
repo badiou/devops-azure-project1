@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
   location = var.location
   tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 }
@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "main" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 }
@@ -28,7 +28,7 @@ resource "azurerm_public_ip" "main" {
   location            = azurerm_resource_group.main.location
   allocation_method   = "Static"
   tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 }
@@ -46,7 +46,7 @@ resource "azurerm_network_interface" "main" {
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 
@@ -65,7 +65,7 @@ resource "azurerm_managed_disk" "main" {
   create_option        = "Empty"
   disk_size_gb         = "1"
   tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 }
@@ -76,30 +76,22 @@ resource "azurerm_lb" "main" {
   location            = azurerm_resource_group.main.location
   sku                 = "Standard"
   tags = {
-    project_name = "udacity-project-1",
-    stage        = "Submission"
-  }
-}
-resource "azurestack_resource_group" "test" {
-  name     = "udacityresourceGroup"
-  location = "East US"
-  tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 }
 
-resource "azurestack_network_security_group" "main" {
+resource "azurerm_network_security_group" "main" {
   name                = "acceptanceTestSecurityGroup1"
-  location            = azurestack_resource_group.main.location
-  resource_group_name = azurestack_resource_group.main.name
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
   tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 }
 
-resource "azurestack_network_security_rule" "main" {
+resource "azurerm_network_security_rule" "main" {
   name                        = "test123"
   priority                    = 100
   direction                   = "Outbound"
@@ -109,9 +101,8 @@ resource "azurestack_network_security_rule" "main" {
   destination_port_range      = "*"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = azurestack_resource_group.main.name
-  network_security_group_name = azurestack_network_security_group.main.name
-  
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 resource "azurerm_linux_virtual_machine" "main" {
@@ -125,7 +116,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   disable_password_authentication = false
   network_interface_ids          = [azurerm_network_interface.main[count.index].id]
   tags = {
-    project_name = "udacity-project-1",
+    project_name = "udacity-project",
     stage        = "Submission"
   }
 

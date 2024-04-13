@@ -142,46 +142,47 @@ For this project, you will write a Packer template and a Terraform template to d
 - Result of the command `packer build server.json` 
   
 ```
-ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % packer build server.json                                         
+ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % packer build server.json                                                  
 azure-arm: output will be in this color.
+
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Getting source image id for the deployment ...
 ==> azure-arm:  -> SourceImageName: '/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/providers/Microsoft.Compute/locations/East US/publishers/canonical/ArtifactTypes/vmimage/offers/UbuntuServer/skus/18.04-LTS/versions/latest'
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-sg0rprbh7v'
+==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-pnhkqb2mqp'
 ==> azure-arm:  -> Location          : 'East US'
 ==> azure-arm:  -> Tags              :
+==> azure-arm:  ->> project_name : udacity-project
 ==> azure-arm:  ->> stage : Submission
-==> azure-arm:  ->> project_name : udacity-project-1
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-sg0rprbh7v'
-==> azure-arm:  -> DeploymentName    : 'pkrdpsg0rprbh7v'
+==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-pnhkqb2mqp'
+==> azure-arm:  -> DeploymentName    : 'pkrdppnhkqb2mqp'
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-sg0rprbh7v'
-==> azure-arm:  -> DeploymentName    : 'pkrdpsg0rprbh7v'
+==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-pnhkqb2mqp'
+==> azure-arm:  -> DeploymentName    : 'pkrdppnhkqb2mqp'
 ==> azure-arm: Getting the VM's IP address ...
-==> azure-arm:  -> ResourceGroupName   : 'pkr-Resource-Group-sg0rprbh7v'
-==> azure-arm:  -> PublicIPAddressName : 'pkripsg0rprbh7v'
-==> azure-arm:  -> NicName             : 'pkrnisg0rprbh7v'
+==> azure-arm:  -> ResourceGroupName   : 'pkr-Resource-Group-pnhkqb2mqp'
+==> azure-arm:  -> PublicIPAddressName : 'pkrippnhkqb2mqp'
+==> azure-arm:  -> NicName             : 'pkrnipnhkqb2mqp'
 ==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
-==> azure-arm:  -> IP Address          : '13.92.2.112'
+==> azure-arm:  -> IP Address          : '13.92.127.234'
 ==> azure-arm: Waiting for SSH to become available...
 ==> azure-arm: Connected to SSH!
-==> azure-arm: Provisioning with shell script: /var/folders/y2/5f0v9c8s4cd38dr623w38k_r0000gn/T/packer-shell264617515
+==> azure-arm: Provisioning with shell script: /var/folders/y2/5f0v9c8s4cd38dr623w38k_r0000gn/T/packer-shell934076252
 ==> azure-arm: + echo Hello, World!
 ==> azure-arm: Querying the machine's properties ...
-==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-sg0rprbh7v'
-==> azure-arm:  -> ComputeName       : 'pkrvmsg0rprbh7v'
-==> azure-arm:  -> Managed OS Disk   : '/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/pkr-Resource-Group-sg0rprbh7v/providers/Microsoft.Compute/disks/pkrossg0rprbh7v'
+==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-pnhkqb2mqp'
+==> azure-arm:  -> ComputeName       : 'pkrvmpnhkqb2mqp'
+==> azure-arm:  -> Managed OS Disk   : '/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/pkr-Resource-Group-pnhkqb2mqp/providers/Microsoft.Compute/disks/pkrospnhkqb2mqp'
 ==> azure-arm: Querying the machine's additional disks properties ...
-==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-sg0rprbh7v'
-==> azure-arm:  -> ComputeName       : 'pkrvmsg0rprbh7v'
+==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-pnhkqb2mqp'
+==> azure-arm:  -> ComputeName       : 'pkrvmpnhkqb2mqp'
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-sg0rprbh7v'
-==> azure-arm:  -> ComputeName       : 'pkrvmsg0rprbh7v'
-==> azure-arm:  -> Compute ResourceGroupName : 'pkr-Resource-Group-sg0rprbh7v'
-==> azure-arm:  -> Compute Name              : 'pkrvmsg0rprbh7v'
+==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-pnhkqb2mqp'
+==> azure-arm:  -> ComputeName       : 'pkrvmpnhkqb2mqp'
+==> azure-arm:  -> Compute ResourceGroupName : 'pkr-Resource-Group-pnhkqb2mqp'
+==> azure-arm:  -> Compute Name              : 'pkrvmpnhkqb2mqp'
 ==> azure-arm:  -> Compute Location          : 'East US'
 ==> azure-arm: Generalizing machine ...
 ==> azure-arm: Capturing image ...
@@ -190,38 +191,35 @@ azure-arm: output will be in this color.
 ==> azure-arm:  -> Image Location            : 'East US'
 ==> azure-arm: 
 ==> azure-arm: Deleting Virtual Machine deployment and its attached resources...
-==> azure-arm: Adding to deletion queue -> Microsoft.Compute/virtualMachines : 'pkrvmsg0rprbh7v'
-==> azure-arm: Adding to deletion queue -> Microsoft.Network/networkInterfaces : 'pkrnisg0rprbh7v'
-==> azure-arm: Adding to deletion queue -> Microsoft.Network/virtualNetworks : 'pkrvnsg0rprbh7v'
-==> azure-arm: Adding to deletion queue -> Microsoft.Network/publicIPAddresses : 'pkripsg0rprbh7v'
-==> azure-arm: Attempting deletion -> Microsoft.Compute/virtualMachines : 'pkrvmsg0rprbh7v'
-==> azure-arm: Attempting deletion -> Microsoft.Network/networkInterfaces : 'pkrnisg0rprbh7v'
-==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnsg0rprbh7v'
-==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkripsg0rprbh7v'
+==> azure-arm: Adding to deletion queue -> Microsoft.Compute/virtualMachines : 'pkrvmpnhkqb2mqp'
+==> azure-arm: Adding to deletion queue -> Microsoft.Network/networkInterfaces : 'pkrnipnhkqb2mqp'
+==> azure-arm: Adding to deletion queue -> Microsoft.Network/virtualNetworks : 'pkrvnpnhkqb2mqp'
+==> azure-arm: Adding to deletion queue -> Microsoft.Network/publicIPAddresses : 'pkrippnhkqb2mqp'
 ==> azure-arm: Waiting for deletion of all resources...
+==> azure-arm: Attempting deletion -> Microsoft.Compute/virtualMachines : 'pkrvmpnhkqb2mqp'
+==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnpnhkqb2mqp'
+==> azure-arm: Attempting deletion -> Microsoft.Network/networkInterfaces : 'pkrnipnhkqb2mqp'
+==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkrippnhkqb2mqp'
 ==> azure-arm: Couldn't delete Microsoft.Network/publicIPAddresses resource. Will retry.
-==> azure-arm: Name: pkripsg0rprbh7v
-==> azure-arm: Couldn't delete Microsoft.Network/networkInterfaces resource. Will retry.
-==> azure-arm: Name: pkrnisg0rprbh7v
+==> azure-arm: Name: pkrippnhkqb2mqp
 ==> azure-arm: Couldn't delete Microsoft.Network/virtualNetworks resource. Will retry.
-==> azure-arm: Name: pkrvnsg0rprbh7v
-==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkripsg0rprbh7v'
-==> azure-arm: Attempting deletion -> Microsoft.Network/networkInterfaces : 'pkrnisg0rprbh7v'
-==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnsg0rprbh7v'
+==> azure-arm: Name: pkrvnpnhkqb2mqp
+==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkrippnhkqb2mqp'
+==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnpnhkqb2mqp'
+==> azure-arm: Couldn't delete Microsoft.Network/virtualNetworks resource. Will retry.
+==> azure-arm: Name: pkrvnpnhkqb2mqp
 ==> azure-arm: Couldn't delete Microsoft.Network/publicIPAddresses resource. Will retry.
-==> azure-arm: Name: pkripsg0rprbh7v
-==> azure-arm: Couldn't delete Microsoft.Network/virtualNetworks resource. Will retry.
-==> azure-arm: Name: pkrvnsg0rprbh7v
-==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkripsg0rprbh7v'
-==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnsg0rprbh7v'
-==> azure-arm:  Deleting -> Microsoft.Compute/disks : '/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/pkr-Resource-Group-sg0rprbh7v/providers/Microsoft.Compute/disks/pkrossg0rprbh7v'
-==> azure-arm: Removing the created Deployment object: 'pkrdpsg0rprbh7v'
+==> azure-arm: Name: pkrippnhkqb2mqp
+==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkrippnhkqb2mqp'
+==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnpnhkqb2mqp'
+==> azure-arm:  Deleting -> Microsoft.Compute/disks : '/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/pkr-Resource-Group-pnhkqb2mqp/providers/Microsoft.Compute/disks/pkrospnhkqb2mqp'
+==> azure-arm: Removing the created Deployment object: 'pkrdppnhkqb2mqp'
 ==> azure-arm: 
 ==> azure-arm: Cleanup requested, deleting resource group ...
 ==> azure-arm: Resource group has been deleted.
-Build 'azure-arm' finished after 3 minutes 26 seconds.
+Build 'azure-arm' finished after 4 minutes 27 seconds.
 
-==> Wait completed after 3 minutes 26 seconds
+==> Wait completed after 4 minutes 27 seconds
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
@@ -238,26 +236,6 @@ ManagedImageLocation: East US
   
 ```
 ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % terraform plan -out solution.plan
-var.admin_password
-  The password for the VM being created.
-
-  Enter a value: B@diou2015
-
-var.admin_username
-  The admin username for the VM being created.
-
-  Enter a value: ourobadiou
-
-var.counter
-  The number of virtual machines you want to create..
-
-  Enter a value: 2
-
-var.prefix
-  The prefix which should be used for all resources in this example
-
-  Enter a value: udacity-project
-
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
@@ -268,14 +246,14 @@ Terraform will perform the following actions:
   + resource "azurerm_lb" "main" {
       + id                   = (known after apply)
       + location             = "eastus"
-      + name                 = "udacity-project-lb"
+      + name                 = "default-prefix-lb"
       + private_ip_address   = (known after apply)
       + private_ip_addresses = (known after apply)
-      + resource_group_name  = "udacity-project-resources"
+      + resource_group_name  = "default-prefix-resources"
       + sku                  = "Standard"
       + sku_tier             = "Regional"
       + tags                 = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
     }
@@ -293,7 +271,7 @@ Terraform will perform the following actions:
       + id                                                     = (known after apply)
       + location                                               = "eastus"
       + max_bid_price                                          = -1
-      + name                                                   = "udacity-project-vm0"
+      + name                                                   = "default-prefix-vm0"
       + network_interface_ids                                  = (known after apply)
       + patch_assessment_mode                                  = "ImageDefault"
       + patch_mode                                             = "ImageDefault"
@@ -304,10 +282,10 @@ Terraform will perform the following actions:
       + provision_vm_agent                                     = true
       + public_ip_address                                      = (known after apply)
       + public_ip_addresses                                    = (known after apply)
-      + resource_group_name                                    = "udacity-project-resources"
+      + resource_group_name                                    = "default-prefix-resources"
       + size                                                   = "Standard_D2s_v3"
       + tags                                                   = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
       + virtual_machine_id                                     = (known after apply)
@@ -342,7 +320,7 @@ Terraform will perform the following actions:
       + id                                                     = (known after apply)
       + location                                               = "eastus"
       + max_bid_price                                          = -1
-      + name                                                   = "udacity-project-vm1"
+      + name                                                   = "default-prefix-vm1"
       + network_interface_ids                                  = (known after apply)
       + patch_assessment_mode                                  = "ImageDefault"
       + patch_mode                                             = "ImageDefault"
@@ -353,10 +331,10 @@ Terraform will perform the following actions:
       + provision_vm_agent                                     = true
       + public_ip_address                                      = (known after apply)
       + public_ip_addresses                                    = (known after apply)
-      + resource_group_name                                    = "udacity-project-resources"
+      + resource_group_name                                    = "default-prefix-resources"
       + size                                                   = "Standard_D2s_v3"
       + tags                                                   = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
       + virtual_machine_id                                     = (known after apply)
@@ -394,11 +372,11 @@ Terraform will perform the following actions:
       + optimized_frequent_attach_enabled = false
       + performance_plus_enabled          = false
       + public_network_access_enabled     = true
-      + resource_group_name               = "udacity-project-resources"
+      + resource_group_name               = "default-prefix-resources"
       + source_uri                        = (known after apply)
       + storage_account_type              = "Standard_LRS"
       + tags                              = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
       + tier                              = (known after apply)
@@ -415,12 +393,12 @@ Terraform will perform the following actions:
       + internal_domain_name_suffix   = (known after apply)
       + location                      = "eastus"
       + mac_address                   = (known after apply)
-      + name                          = "udacity-project-nic-0"
+      + name                          = "default-prefix-nic-0"
       + private_ip_address            = (known after apply)
       + private_ip_addresses          = (known after apply)
-      + resource_group_name           = "udacity-project-resources"
+      + resource_group_name           = "default-prefix-resources"
       + tags                          = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
       + virtual_machine_id            = (known after apply)
@@ -447,12 +425,12 @@ Terraform will perform the following actions:
       + internal_domain_name_suffix   = (known after apply)
       + location                      = "eastus"
       + mac_address                   = (known after apply)
-      + name                          = "udacity-project-nic-1"
+      + name                          = "default-prefix-nic-1"
       + private_ip_address            = (known after apply)
       + private_ip_addresses          = (known after apply)
-      + resource_group_name           = "udacity-project-resources"
+      + resource_group_name           = "default-prefix-resources"
       + tags                          = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
       + virtual_machine_id            = (known after apply)
@@ -468,6 +446,35 @@ Terraform will perform the following actions:
         }
     }
 
+  # azurerm_network_security_group.main will be created
+  + resource "azurerm_network_security_group" "main" {
+      + id                  = (known after apply)
+      + location            = "eastus"
+      + name                = "acceptanceTestSecurityGroup1"
+      + resource_group_name = "default-prefix-resources"
+      + security_rule       = (known after apply)
+      + tags                = {
+          + "project_name" = "udacity-project"
+          + "stage"        = "Submission"
+        }
+    }
+
+  # azurerm_network_security_rule.main will be created
+  + resource "azurerm_network_security_rule" "main" {
+      + access                      = "Allow"
+      + destination_address_prefix  = "*"
+      + destination_port_range      = "*"
+      + direction                   = "Outbound"
+      + id                          = (known after apply)
+      + name                        = "test123"
+      + network_security_group_name = "acceptanceTestSecurityGroup1"
+      + priority                    = 100
+      + protocol                    = "Tcp"
+      + resource_group_name         = "default-prefix-resources"
+      + source_address_prefix       = "*"
+      + source_port_range           = "*"
+    }
+
   # azurerm_public_ip.main will be created
   + resource "azurerm_public_ip" "main" {
       + allocation_method       = "Static"
@@ -478,12 +485,12 @@ Terraform will perform the following actions:
       + ip_address              = (known after apply)
       + ip_version              = "IPv4"
       + location                = "eastus"
-      + name                    = "udacity-project-public-ip"
-      + resource_group_name     = "udacity-project-resources"
+      + name                    = "default-prefix-public-ip"
+      + resource_group_name     = "default-prefix-resources"
       + sku                     = "Basic"
       + sku_tier                = "Regional"
       + tags                    = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
     }
@@ -492,9 +499,9 @@ Terraform will perform the following actions:
   + resource "azurerm_resource_group" "main" {
       + id       = (known after apply)
       + location = "eastus"
-      + name     = "udacity-project-resources"
+      + name     = "default-prefix-resources"
       + tags     = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
     }
@@ -510,8 +517,8 @@ Terraform will perform the following actions:
       + name                                           = "internal"
       + private_endpoint_network_policies_enabled      = (known after apply)
       + private_link_service_network_policies_enabled  = (known after apply)
-      + resource_group_name                            = "udacity-project-resources"
-      + virtual_network_name                           = "udacity-project-network"
+      + resource_group_name                            = "default-prefix-resources"
+      + virtual_network_name                           = "default-prefix-network"
     }
 
   # azurerm_virtual_network.main will be created
@@ -523,88 +530,84 @@ Terraform will perform the following actions:
       + guid                = (known after apply)
       + id                  = (known after apply)
       + location            = "eastus"
-      + name                = "udacity-project-network"
-      + resource_group_name = "udacity-project-resources"
+      + name                = "default-prefix-network"
+      + resource_group_name = "default-prefix-resources"
       + subnet              = (known after apply)
       + tags                = {
-          + "project_name" = "udacity-project-1"
+          + "project_name" = "udacity-project"
           + "stage"        = "Submission"
         }
     }
 
-Plan: 10 to add, 0 to change, 0 to destroy.
+Plan: 12 to add, 0 to change, 0 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: solution.plan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "solution.plan"
 ```
+
 - Result of command ` terraform apply "solution.plan" `
 ```
-ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % terraform apply "solution.plan"  
+ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % terraform apply "solution.plan"
 azurerm_resource_group.main: Creating...
-azurerm_resource_group.main: Creation complete after 1s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources]
+azurerm_resource_group.main: Creation complete after 2s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources]
+azurerm_network_security_group.main: Creating...
 azurerm_virtual_network.main: Creating...
-azurerm_lb.main: Creating...
 azurerm_public_ip.main: Creating...
+azurerm_lb.main: Creating...
 azurerm_managed_disk.main: Creating...
-azurerm_public_ip.main: Creation complete after 4s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/publicIPAddresses/udacity-project-public-ip]
-azurerm_managed_disk.main: Creation complete after 5s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/disks/acctestmd]
-azurerm_virtual_network.main: Creation complete after 7s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network]
+azurerm_network_security_group.main: Creation complete after 3s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1]
+azurerm_network_security_rule.main: Creating...
+azurerm_public_ip.main: Creation complete after 3s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/publicIPAddresses/default-prefix-public-ip]
+azurerm_managed_disk.main: Creation complete after 4s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/disks/acctestmd]
+azurerm_virtual_network.main: Creation complete after 6s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network]
 azurerm_subnet.internal: Creating...
+azurerm_network_security_rule.main: Creation complete after 3s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1/securityRules/test123]
 azurerm_lb.main: Still creating... [10s elapsed]
-azurerm_subnet.internal: Creation complete after 6s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network/subnets/internal]
+azurerm_subnet.internal: Creation complete after 5s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network/subnets/internal]
 azurerm_network_interface.main[1]: Creating...
 azurerm_network_interface.main[0]: Creating...
-azurerm_lb.main: Creation complete after 13s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/loadBalancers/udacity-project-lb]
-azurerm_network_interface.main[0]: Still creating... [10s elapsed]
+azurerm_lb.main: Creation complete after 12s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/loadBalancers/default-prefix-lb]
 azurerm_network_interface.main[1]: Still creating... [10s elapsed]
-azurerm_network_interface.main[1]: Creation complete after 13s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-1]
-azurerm_network_interface.main[0]: Still creating... [20s elapsed]
-azurerm_network_interface.main[0]: Creation complete after 26s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-0]
+azurerm_network_interface.main[0]: Still creating... [10s elapsed]
+azurerm_network_interface.main[0]: Creation complete after 13s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-0]
+azurerm_network_interface.main[1]: Still creating... [20s elapsed]
+azurerm_network_interface.main[1]: Creation complete after 26s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-1]
 azurerm_linux_virtual_machine.main[0]: Creating...
 azurerm_linux_virtual_machine.main[1]: Creating...
-azurerm_linux_virtual_machine.main[1]: Still creating... [10s elapsed]
 azurerm_linux_virtual_machine.main[0]: Still creating... [10s elapsed]
-azurerm_linux_virtual_machine.main[0]: Creation complete after 14s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm0]
+azurerm_linux_virtual_machine.main[1]: Still creating... [10s elapsed]
 azurerm_linux_virtual_machine.main[1]: Still creating... [20s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still creating... [20s elapsed]
 azurerm_linux_virtual_machine.main[1]: Still creating... [30s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still creating... [30s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still creating... [40s elapsed]
 azurerm_linux_virtual_machine.main[1]: Still creating... [40s elapsed]
-azurerm_linux_virtual_machine.main[1]: Still creating... [50s elapsed]
-azurerm_linux_virtual_machine.main[1]: Creation complete after 50s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm1]
+azurerm_linux_virtual_machine.main[1]: Creation complete after 50s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm1]
+azurerm_linux_virtual_machine.main[0]: Still creating... [50s elapsed]
+azurerm_linux_virtual_machine.main[0]: Creation complete after 50s [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm0]
 
-Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
-ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % 
+Apply complete! Resources: 12 added, 0 changed, 0 destroyed.
 ```
 
 - DO NOT FORGET TO RUN `terraform destroy` IF YOU WANT TO DELETE YOUR RESOURCES
 ```
 ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % terraform destroy
-var.admin_password
-  The password for the VM being created.
-
-  Enter a value: B@diou2015
-
-var.admin_username
-  The admin username for the VM being created.
-
-  Enter a value: ourobadiou
-
-var.counter
-  The number of virtual machines you want to create..
-
-  Enter a value: 2
-
-var.prefix
-  The prefix which should be used for all resources in this example
-
-  Enter a value: udacity-project
-
-azurerm_resource_group.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources]
-azurerm_public_ip.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/publicIPAddresses/udacity-project-public-ip]
-azurerm_virtual_network.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network]
-azurerm_lb.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/loadBalancers/udacity-project-lb]
-azurerm_managed_disk.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/disks/acctestmd]
-azurerm_subnet.internal: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network/subnets/internal]
-azurerm_network_interface.main[1]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-1]
-azurerm_network_interface.main[0]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-0]
-azurerm_linux_virtual_machine.main[0]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm0]
-azurerm_linux_virtual_machine.main[1]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm1]
+azurerm_resource_group.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources]
+azurerm_lb.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/loadBalancers/default-prefix-lb]
+azurerm_network_security_group.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1]
+azurerm_public_ip.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/publicIPAddresses/default-prefix-public-ip]
+azurerm_virtual_network.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network]
+azurerm_managed_disk.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/disks/acctestmd]
+azurerm_subnet.internal: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network/subnets/internal]
+azurerm_network_security_rule.main: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1/securityRules/test123]
+azurerm_network_interface.main[0]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-0]
+azurerm_network_interface.main[1]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-1]
+azurerm_linux_virtual_machine.main[1]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm1]
+azurerm_linux_virtual_machine.main[0]: Refreshing state... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm0]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   - destroy
@@ -613,15 +616,15 @@ Terraform will perform the following actions:
 
   # azurerm_lb.main will be destroyed
   - resource "azurerm_lb" "main" {
-      - id                   = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/loadBalancers/udacity-project-lb" -> null
+      - id                   = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/loadBalancers/default-prefix-lb" -> null
       - location             = "eastus" -> null
-      - name                 = "udacity-project-lb" -> null
+      - name                 = "default-prefix-lb" -> null
       - private_ip_addresses = [] -> null
-      - resource_group_name  = "udacity-project-resources" -> null
+      - resource_group_name  = "default-prefix-resources" -> null
       - sku                  = "Standard" -> null
       - sku_tier             = "Regional" -> null
       - tags                 = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
     }
@@ -632,42 +635,42 @@ Terraform will perform the following actions:
       - admin_username                                         = "ourobadiou" -> null
       - allow_extension_operations                             = true -> null
       - bypass_platform_safety_checks_on_user_schedule_enabled = false -> null
-      - computer_name                                          = "udacity-project-vm0" -> null
+      - computer_name                                          = "default-prefix-vm0" -> null
       - disable_password_authentication                        = false -> null
       - encryption_at_host_enabled                             = false -> null
       - extensions_time_budget                                 = "PT1H30M" -> null
-      - id                                                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm0" -> null
+      - id                                                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm0" -> null
       - location                                               = "eastus" -> null
       - max_bid_price                                          = -1 -> null
-      - name                                                   = "udacity-project-vm0" -> null
+      - name                                                   = "default-prefix-vm0" -> null
       - network_interface_ids                                  = [
-          - "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-0",
+          - "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-0",
         ] -> null
       - patch_assessment_mode                                  = "ImageDefault" -> null
       - patch_mode                                             = "ImageDefault" -> null
       - platform_fault_domain                                  = -1 -> null
       - priority                                               = "Regular" -> null
-      - private_ip_address                                     = "10.0.2.5" -> null
+      - private_ip_address                                     = "10.0.2.4" -> null
       - private_ip_addresses                                   = [
-          - "10.0.2.5",
+          - "10.0.2.4",
         ] -> null
       - provision_vm_agent                                     = true -> null
       - public_ip_addresses                                    = [] -> null
-      - resource_group_name                                    = "udacity-project-resources" -> null
+      - resource_group_name                                    = "default-prefix-resources" -> null
       - secure_boot_enabled                                    = false -> null
       - size                                                   = "Standard_D2s_v3" -> null
       - tags                                                   = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
-      - virtual_machine_id                                     = "4d779327-c010-4fc6-84b5-9f9a401e983b" -> null
+      - virtual_machine_id                                     = "e5d41a27-3b08-4130-8dfb-53d8ba6422b9" -> null
       - vm_agent_platform_updates_enabled                      = false -> null
       - vtpm_enabled                                           = false -> null
 
       - os_disk {
           - caching                   = "ReadWrite" -> null
           - disk_size_gb              = 30 -> null
-          - name                      = "udacity-project-vm0_disk1_493b9e6d6bcb4624957beac4016debee" -> null
+          - name                      = "default-prefix-vm0_OsDisk_1_5af6b8087dd5489e8840b3f8cad7031a" -> null
           - storage_account_type      = "Standard_LRS" -> null
           - write_accelerator_enabled = false -> null
         }
@@ -686,42 +689,42 @@ Terraform will perform the following actions:
       - admin_username                                         = "ourobadiou" -> null
       - allow_extension_operations                             = true -> null
       - bypass_platform_safety_checks_on_user_schedule_enabled = false -> null
-      - computer_name                                          = "udacity-project-vm1" -> null
+      - computer_name                                          = "default-prefix-vm1" -> null
       - disable_password_authentication                        = false -> null
       - encryption_at_host_enabled                             = false -> null
       - extensions_time_budget                                 = "PT1H30M" -> null
-      - id                                                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm1" -> null
+      - id                                                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm1" -> null
       - location                                               = "eastus" -> null
       - max_bid_price                                          = -1 -> null
-      - name                                                   = "udacity-project-vm1" -> null
+      - name                                                   = "default-prefix-vm1" -> null
       - network_interface_ids                                  = [
-          - "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-1",
+          - "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-1",
         ] -> null
       - patch_assessment_mode                                  = "ImageDefault" -> null
       - patch_mode                                             = "ImageDefault" -> null
       - platform_fault_domain                                  = -1 -> null
       - priority                                               = "Regular" -> null
-      - private_ip_address                                     = "10.0.2.4" -> null
+      - private_ip_address                                     = "10.0.2.5" -> null
       - private_ip_addresses                                   = [
-          - "10.0.2.4",
+          - "10.0.2.5",
         ] -> null
       - provision_vm_agent                                     = true -> null
       - public_ip_addresses                                    = [] -> null
-      - resource_group_name                                    = "udacity-project-resources" -> null
+      - resource_group_name                                    = "default-prefix-resources" -> null
       - secure_boot_enabled                                    = false -> null
       - size                                                   = "Standard_D2s_v3" -> null
       - tags                                                   = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
-      - virtual_machine_id                                     = "c8c21068-288b-4c68-8a86-92deb888a4bc" -> null
+      - virtual_machine_id                                     = "9dc2a016-8d53-4f65-961d-6f4cfe1b168d" -> null
       - vm_agent_platform_updates_enabled                      = false -> null
       - vtpm_enabled                                           = false -> null
 
       - os_disk {
           - caching                   = "ReadWrite" -> null
           - disk_size_gb              = 30 -> null
-          - name                      = "udacity-project-vm1_OsDisk_1_5d371cb112fa43ba8210dd586cc4b2fe" -> null
+          - name                      = "default-prefix-vm1_OsDisk_1_420e7f073b7844a19cc266aada50aa43" -> null
           - storage_account_type      = "Standard_LRS" -> null
           - write_accelerator_enabled = false -> null
         }
@@ -742,7 +745,7 @@ Terraform will perform the following actions:
       - disk_mbps_read_only               = 0 -> null
       - disk_mbps_read_write              = 60 -> null
       - disk_size_gb                      = 1 -> null
-      - id                                = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/disks/acctestmd" -> null
+      - id                                = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/disks/acctestmd" -> null
       - location                          = "eastus" -> null
       - max_shares                        = 0 -> null
       - name                              = "acctestmd" -> null
@@ -750,10 +753,10 @@ Terraform will perform the following actions:
       - optimized_frequent_attach_enabled = false -> null
       - performance_plus_enabled          = false -> null
       - public_network_access_enabled     = true -> null
-      - resource_group_name               = "udacity-project-resources" -> null
+      - resource_group_name               = "default-prefix-resources" -> null
       - storage_account_type              = "Standard_LRS" -> null
       - tags                              = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
       - trusted_launch_enabled            = false -> null
@@ -766,29 +769,29 @@ Terraform will perform the following actions:
       - dns_servers                   = [] -> null
       - enable_accelerated_networking = false -> null
       - enable_ip_forwarding          = false -> null
-      - id                            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-0" -> null
-      - internal_domain_name_suffix   = "2gappwrgezoexfltekyh1r0pod.bx.internal.cloudapp.net" -> null
+      - id                            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-0" -> null
+      - internal_domain_name_suffix   = "tkf2rsctsgdebpid1nvjipspxc.bx.internal.cloudapp.net" -> null
       - location                      = "eastus" -> null
-      - mac_address                   = "7C-1E-52-00-96-E5" -> null
-      - name                          = "udacity-project-nic-0" -> null
-      - private_ip_address            = "10.0.2.5" -> null
+      - mac_address                   = "00-22-48-1D-03-B1" -> null
+      - name                          = "default-prefix-nic-0" -> null
+      - private_ip_address            = "10.0.2.4" -> null
       - private_ip_addresses          = [
-          - "10.0.2.5",
+          - "10.0.2.4",
         ] -> null
-      - resource_group_name           = "udacity-project-resources" -> null
+      - resource_group_name           = "default-prefix-resources" -> null
       - tags                          = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
-      - virtual_machine_id            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm0" -> null
+      - virtual_machine_id            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm0" -> null
 
       - ip_configuration {
           - name                          = "internal" -> null
           - primary                       = true -> null
-          - private_ip_address            = "10.0.2.5" -> null
+          - private_ip_address            = "10.0.2.4" -> null
           - private_ip_address_allocation = "Dynamic" -> null
           - private_ip_address_version    = "IPv4" -> null
-          - subnet_id                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network/subnets/internal" -> null
+          - subnet_id                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network/subnets/internal" -> null
         }
     }
 
@@ -798,48 +801,102 @@ Terraform will perform the following actions:
       - dns_servers                   = [] -> null
       - enable_accelerated_networking = false -> null
       - enable_ip_forwarding          = false -> null
-      - id                            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-1" -> null
-      - internal_domain_name_suffix   = "2gappwrgezoexfltekyh1r0pod.bx.internal.cloudapp.net" -> null
+      - id                            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-1" -> null
+      - internal_domain_name_suffix   = "tkf2rsctsgdebpid1nvjipspxc.bx.internal.cloudapp.net" -> null
       - location                      = "eastus" -> null
-      - mac_address                   = "00-22-48-1F-43-B9" -> null
-      - name                          = "udacity-project-nic-1" -> null
-      - private_ip_address            = "10.0.2.4" -> null
+      - mac_address                   = "00-0D-3A-9C-43-9B" -> null
+      - name                          = "default-prefix-nic-1" -> null
+      - private_ip_address            = "10.0.2.5" -> null
       - private_ip_addresses          = [
-          - "10.0.2.4",
+          - "10.0.2.5",
         ] -> null
-      - resource_group_name           = "udacity-project-resources" -> null
+      - resource_group_name           = "default-prefix-resources" -> null
       - tags                          = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
-      - virtual_machine_id            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm1" -> null
+      - virtual_machine_id            = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm1" -> null
 
       - ip_configuration {
           - name                          = "internal" -> null
           - primary                       = true -> null
-          - private_ip_address            = "10.0.2.4" -> null
+          - private_ip_address            = "10.0.2.5" -> null
           - private_ip_address_allocation = "Dynamic" -> null
           - private_ip_address_version    = "IPv4" -> null
-          - subnet_id                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network/subnets/internal" -> null
+          - subnet_id                     = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network/subnets/internal" -> null
         }
+    }
+
+  # azurerm_network_security_group.main will be destroyed
+  - resource "azurerm_network_security_group" "main" {
+      - id                  = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1" -> null
+      - location            = "eastus" -> null
+      - name                = "acceptanceTestSecurityGroup1" -> null
+      - resource_group_name = "default-prefix-resources" -> null
+      - security_rule       = [
+          - {
+              - access                                     = "Allow"
+              - description                                = ""
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "*"
+              - destination_port_ranges                    = []
+              - direction                                  = "Outbound"
+              - name                                       = "test123"
+              - priority                                   = 100
+              - protocol                                   = "Tcp"
+              - source_address_prefix                      = "*"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+            },
+        ] -> null
+      - tags                = {
+          - "project_name" = "udacity-project"
+          - "stage"        = "Submission"
+        } -> null
+    }
+
+  # azurerm_network_security_rule.main will be destroyed
+  - resource "azurerm_network_security_rule" "main" {
+      - access                                     = "Allow" -> null
+      - destination_address_prefix                 = "*" -> null
+      - destination_address_prefixes               = [] -> null
+      - destination_application_security_group_ids = [] -> null
+      - destination_port_range                     = "*" -> null
+      - destination_port_ranges                    = [] -> null
+      - direction                                  = "Outbound" -> null
+      - id                                         = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1/securityRules/test123" -> null
+      - name                                       = "test123" -> null
+      - network_security_group_name                = "acceptanceTestSecurityGroup1" -> null
+      - priority                                   = 100 -> null
+      - protocol                                   = "Tcp" -> null
+      - resource_group_name                        = "default-prefix-resources" -> null
+      - source_address_prefix                      = "*" -> null
+      - source_address_prefixes                    = [] -> null
+      - source_application_security_group_ids      = [] -> null
+      - source_port_range                          = "*" -> null
+      - source_port_ranges                         = [] -> null
     }
 
   # azurerm_public_ip.main will be destroyed
   - resource "azurerm_public_ip" "main" {
       - allocation_method       = "Static" -> null
       - ddos_protection_mode    = "VirtualNetworkInherited" -> null
-      - id                      = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/publicIPAddresses/udacity-project-public-ip" -> null
+      - id                      = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/publicIPAddresses/default-prefix-public-ip" -> null
       - idle_timeout_in_minutes = 4 -> null
-      - ip_address              = "13.82.98.174" -> null
+      - ip_address              = "40.71.80.97" -> null
       - ip_tags                 = {} -> null
       - ip_version              = "IPv4" -> null
       - location                = "eastus" -> null
-      - name                    = "udacity-project-public-ip" -> null
-      - resource_group_name     = "udacity-project-resources" -> null
+      - name                    = "default-prefix-public-ip" -> null
+      - resource_group_name     = "default-prefix-resources" -> null
       - sku                     = "Basic" -> null
       - sku_tier                = "Regional" -> null
       - tags                    = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
       - zones                   = [] -> null
@@ -847,11 +904,11 @@ Terraform will perform the following actions:
 
   # azurerm_resource_group.main will be destroyed
   - resource "azurerm_resource_group" "main" {
-      - id       = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources" -> null
+      - id       = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources" -> null
       - location = "eastus" -> null
-      - name     = "udacity-project-resources" -> null
+      - name     = "default-prefix-resources" -> null
       - tags     = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
     }
@@ -863,14 +920,14 @@ Terraform will perform the following actions:
         ] -> null
       - enforce_private_link_endpoint_network_policies = false -> null
       - enforce_private_link_service_network_policies  = false -> null
-      - id                                             = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network/subnets/internal" -> null
+      - id                                             = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network/subnets/internal" -> null
       - name                                           = "internal" -> null
       - private_endpoint_network_policies_enabled      = true -> null
       - private_link_service_network_policies_enabled  = true -> null
-      - resource_group_name                            = "udacity-project-resources" -> null
+      - resource_group_name                            = "default-prefix-resources" -> null
       - service_endpoint_policy_ids                    = [] -> null
       - service_endpoints                              = [] -> null
-      - virtual_network_name                           = "udacity-project-network" -> null
+      - virtual_network_name                           = "default-prefix-network" -> null
     }
 
   # azurerm_virtual_network.main will be destroyed
@@ -880,26 +937,26 @@ Terraform will perform the following actions:
         ] -> null
       - dns_servers             = [] -> null
       - flow_timeout_in_minutes = 0 -> null
-      - guid                    = "daf780e1-2626-4b5c-9573-22b07dc74f73" -> null
-      - id                      = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network" -> null
+      - guid                    = "c8c88b9a-9153-4086-bd03-db6a943e4fba" -> null
+      - id                      = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network" -> null
       - location                = "eastus" -> null
-      - name                    = "udacity-project-network" -> null
-      - resource_group_name     = "udacity-project-resources" -> null
+      - name                    = "default-prefix-network" -> null
+      - resource_group_name     = "default-prefix-resources" -> null
       - subnet                  = [
           - {
               - address_prefix = "10.0.2.0/24"
-              - id             = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network/subnets/internal"
+              - id             = "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network/subnets/internal"
               - name           = "internal"
               - security_group = ""
             },
         ] -> null
       - tags                    = {
-          - "project_name" = "udacity-project-1"
+          - "project_name" = "udacity-project"
           - "stage"        = "Submission"
         } -> null
     }
 
-Plan: 0 to add, 0 to change, 10 to destroy.
+Plan: 0 to add, 0 to change, 12 to destroy.
 
 Do you really want to destroy all resources?
   Terraform will destroy all your managed infrastructure, as shown above.
@@ -907,51 +964,58 @@ Do you really want to destroy all resources?
 
   Enter a value: yes
 
-azurerm_managed_disk.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/disks/acctestmd]
-azurerm_linux_virtual_machine.main[1]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm1]
-azurerm_public_ip.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/publicIPAddresses/udacity-project-public-ip]
-azurerm_lb.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/loadBalancers/udacity-project-lb]
-azurerm_linux_virtual_machine.main[0]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Compute/virtualMachines/udacity-project-vm0]
+azurerm_public_ip.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/publicIPAddresses/default-prefix-public-ip]
+azurerm_network_security_rule.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1/securityRules/test123]
+azurerm_lb.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/loadBalancers/default-prefix-lb]
+azurerm_linux_virtual_machine.main[1]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm1]
+azurerm_linux_virtual_machine.main[0]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/virtualMachines/default-prefix-vm0]
+azurerm_managed_disk.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Compute/disks/acctestmd]
+azurerm_public_ip.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...icIPAddresses/default-prefix-public-ip, 10s elapsed]
 azurerm_managed_disk.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ders/Microsoft.Compute/disks/acctestmd, 10s elapsed]
-azurerm_public_ip.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...cIPAddresses/udacity-project-public-ip, 10s elapsed]
-azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm1, 10s elapsed]
-azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm0, 10s elapsed]
-azurerm_lb.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...twork/loadBalancers/udacity-project-lb, 10s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm0, 10s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm1, 10s elapsed]
+azurerm_network_security_rule.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...stSecurityGroup1/securityRules/test123, 10s elapsed]
+azurerm_lb.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...etwork/loadBalancers/default-prefix-lb, 10s elapsed]
 azurerm_lb.main: Destruction complete after 11s
+azurerm_network_security_rule.main: Destruction complete after 11s
+azurerm_network_security_group.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1]
 azurerm_public_ip.main: Destruction complete after 11s
 azurerm_managed_disk.main: Destruction complete after 11s
-azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm1, 20s elapsed]
-azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm0, 20s elapsed]
-azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm1, 30s elapsed]
-azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm0, 30s elapsed]
-azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm1, 40s elapsed]
-azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm0, 40s elapsed]
-azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm0, 50s elapsed]
-azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...te/virtualMachines/udacity-project-vm1, 50s elapsed]
-azurerm_linux_virtual_machine.main[0]: Destruction complete after 59s
+azurerm_network_security_group.main: Destruction complete after 2s
+azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm0, 20s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm1, 20s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm1, 30s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm0, 30s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm1, 40s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm0, 40s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm0, 50s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm1, 50s elapsed]
 azurerm_linux_virtual_machine.main[1]: Destruction complete after 59s
-azurerm_network_interface.main[0]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-0]
-azurerm_network_interface.main[1]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/networkInterfaces/udacity-project-nic-1]
-azurerm_network_interface.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...etworkInterfaces/udacity-project-nic-0, 10s elapsed]
-azurerm_network_interface.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...etworkInterfaces/udacity-project-nic-1, 10s elapsed]
-azurerm_network_interface.main[1]: Destruction complete after 12s
-azurerm_network_interface.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...etworkInterfaces/udacity-project-nic-0, 20s elapsed]
-azurerm_network_interface.main[0]: Destruction complete after 23s
-azurerm_subnet.internal: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network/subnets/internal]
-azurerm_subnet.internal: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...acity-project-network/subnets/internal, 10s elapsed]
-azurerm_subnet.internal: Destruction complete after 10s
-azurerm_virtual_network.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources/providers/Microsoft.Network/virtualNetworks/udacity-project-network]
-azurerm_virtual_network.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...irtualNetworks/udacity-project-network, 10s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...ute/virtualMachines/default-prefix-vm0, 1m0s elapsed]
+azurerm_linux_virtual_machine.main[0]: Destruction complete after 1m4s
+azurerm_network_interface.main[1]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-1]
+azurerm_network_interface.main[0]: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/networkInterfaces/default-prefix-nic-0]
+azurerm_network_interface.main[0]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...networkInterfaces/default-prefix-nic-0, 10s elapsed]
+azurerm_network_interface.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...networkInterfaces/default-prefix-nic-1, 10s elapsed]
+azurerm_network_interface.main[0]: Destruction complete after 11s
+azurerm_network_interface.main[1]: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...networkInterfaces/default-prefix-nic-1, 20s elapsed]
+azurerm_network_interface.main[1]: Destruction complete after 22s
+azurerm_subnet.internal: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network/subnets/internal]
+azurerm_subnet.internal: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...efault-prefix-network/subnets/internal, 10s elapsed]
+azurerm_subnet.internal: Destruction complete after 11s
+azurerm_virtual_network.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources/providers/Microsoft.Network/virtualNetworks/default-prefix-network]
+azurerm_virtual_network.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...virtualNetworks/default-prefix-network, 10s elapsed]
 azurerm_virtual_network.main: Destruction complete after 11s
-azurerm_resource_group.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacity-project-resources]
-azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...sourceGroups/udacity-project-resources, 10s elapsed]
-azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...sourceGroups/udacity-project-resources, 20s elapsed]
-azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...sourceGroups/udacity-project-resources, 30s elapsed]
-azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...sourceGroups/udacity-project-resources, 40s elapsed]
-azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...sourceGroups/udacity-project-resources, 50s elapsed]
-azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...sourceGroups/udacity-project-resources, 1m0s elapsed]
-azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...sourceGroups/udacity-project-resources, 1m10s elapsed]
-azurerm_resource_group.main: Destruction complete after 1m19s
+azurerm_resource_group.main: Destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/default-prefix-resources]
+azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...esourceGroups/default-prefix-resources, 10s elapsed]
+azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...esourceGroups/default-prefix-resources, 20s elapsed]
+azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...esourceGroups/default-prefix-resources, 30s elapsed]
+azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...esourceGroups/default-prefix-resources, 40s elapsed]
+azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...esourceGroups/default-prefix-resources, 50s elapsed]
+azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...esourceGroups/default-prefix-resources, 1m0s elapsed]
+azurerm_resource_group.main: Still destroying... [id=/subscriptions/c6b49f87-b44b-4f50-9328-...esourceGroups/default-prefix-resources, 2m43s elapsed]
+azurerm_resource_group.main: Destruction complete after 2m51s
 
-Destroy complete! Resources: 10 destroyed.
+Destroy complete! Resources: 12 destroyed.
+ourobadiou@MacBook-Air-de-Badiou devops-azure-project1 % 
 ```

@@ -13,7 +13,7 @@
 		"tenant_id": "{{user `tenant_id`}}",
 
 		"azure_tags": {
-			"project_name": "udacity-project-1",
+			"project_name": "udacity-project",
 			"stage": "Submission"
 		},
 
