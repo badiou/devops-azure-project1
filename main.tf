@@ -80,6 +80,39 @@ resource "azurerm_lb" "main" {
     stage        = "Submission"
   }
 }
+resource "azurestack_resource_group" "test" {
+  name     = "udacityresourceGroup"
+  location = "East US"
+  tags = {
+    project_name = "udacity-project-1",
+    stage        = "Submission"
+  }
+}
+
+resource "azurestack_network_security_group" "main" {
+  name                = "acceptanceTestSecurityGroup1"
+  location            = azurestack_resource_group.main.location
+  resource_group_name = azurestack_resource_group.main.name
+  tags = {
+    project_name = "udacity-project-1",
+    stage        = "Submission"
+  }
+}
+
+resource "azurestack_network_security_rule" "main" {
+  name                        = "test123"
+  priority                    = 100
+  direction                   = "Outbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "*"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = azurestack_resource_group.main.name
+  network_security_group_name = azurestack_network_security_group.main.name
+  
+}
 
 resource "azurerm_linux_virtual_machine" "main" {
   count                          = var.counter
