@@ -82,7 +82,7 @@ If you wish to use the default values for the variables, run `terraform apply "s
 13. Below, you will find the list of results obtained after executing certain commands:
 
 
-14. Result of the command `az group create -n udacityResourceGroup -l eastus`
+- Result of the command `az group create -n udacityResourceGroup -l eastus`
 ```
 {
   "id": "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacityResourceGroup",
@@ -96,7 +96,7 @@ If you wish to use the default values for the variables, run `terraform apply "s
   "type": "Microsoft.Resources/resourceGroups"
 }
 ```
-15.  result of the command 
+- Result of the command 
 `az policy definition create --name tagging-policy --rules tagging_policy.json`
 ```
 {
