@@ -61,7 +61,8 @@ For this project, you will create a Packer template and a Terraform template to 
 5. Le déploiement de votre infrastructure sur Azure se fait à travers le fichier main.tf. Ce fichier est associé à vars.tf qui contient toutes les variables utilisées pour le déploiement. Vous pouvez spécifier les parametres souhaitées. Par exemple si vous souhaite
 
 6. Run 
-```terraform apply \
+```
+terraform apply \
     -var="prefix=my_prefix" \  # Replace "my_prefix" with your custom prefix, or use the default value "udacity"
     -var="location=East US" \   # Replace "East US" with your custom Azure region, or use the default value
     -var="admin_username=my_username" \  # Replace "my_username" with your custom admin username, or use the default value "ourobadiou"
