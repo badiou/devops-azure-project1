@@ -1,7 +1,10 @@
 provider "azurerm" {
   features {}
 }
-
+data "azurerm_image" "main" {
+  name                = "myPackerImage"
+  resource_group_name = "udacityResourceGroup"
+}
 resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
   location = var.location
@@ -53,12 +56,6 @@ resource "azurerm_network_interface" "main" {
   tags = {
     project_name = "udacity-project",
     stage        = "Submission"
-  }
-
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = azurerm_subnet.internal.id
-    private_ip_address_allocation = "Dynamic"
   }
 }
 
@@ -131,20 +128,19 @@ resource "azurerm_linux_virtual_machine" "main" {
   admin_password                 = var.admin_password
   disable_password_authentication = false
   network_interface_ids          = [azurerm_network_interface.main[count.index].id]
+  source_image_id = data.azurerm_image.main.id
   tags = {
     project_name = "udacity-project",
     stage        = "Submission"
   }
 
-  source_image_reference {
-    publisher = "canonical"
+  /*source_image_reference {
+    publisher = "Canonical"
     offer     = "myPackerImage" 
     sku       = "18.04-LTS"
     version   = "latest"
-  }
-  /*storage_image_reference {
-    id = "/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/udacityResourceGroup/providers/Microsoft.Compute/images/myPackerImage"
   }*/
+
 
   os_disk {
     storage_account_type = "Standard_LRS"
