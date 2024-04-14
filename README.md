@@ -17,17 +17,6 @@ For this project, you will create a Packer template and a Terraform template to 
 ## Instructions
 1. Create the resource group named udacityResourceGroup using the following command:
    `az group create -n udacityResourceGroup -l eastus`
-   ```{
-  "id": "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacityResourceGroup",
-  "location": "eastus",
-  "managedBy": null,
-  "name": "udacityResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null,
-  "type": "Microsoft.Resources/resourceGroups"
-}```
 
 2. Use the command `az group list -o table` to ensure that your group is created successfully.
 
