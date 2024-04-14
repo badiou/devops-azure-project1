@@ -142,6 +142,9 @@ resource "azurerm_linux_virtual_machine" "main" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
+  /*storage_image_reference {
+    id = "/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/udacityResourceGroup/providers/Microsoft.Compute/images/myPackerImage"
+  }*/
 
   os_disk {
     storage_account_type = "Standard_LRS"
