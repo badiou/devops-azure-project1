@@ -45,22 +45,22 @@ For this project, you will create a Packer template and a Terraform template to 
    ``` 
    to retrieve your subscription ID.
 
-1. Create the policy using the following command:
+5. Create the policy using the following command:
    ```
    az policy definition create --name tagging-policy --rules tagging_policy.json
    ```
 
-2. Apply the policy using this command:
+6. Apply the policy using this command:
    ```
    az policy assignment create --name tagging-policy --scope "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacityResourceGroup" --policy tagging-policy
    ```
 
-3. Execute the command `packer build server.json` to create an image. You can verify from your Azure console that the image has been successfully created.
+7. Execute the command `packer build server.json` to create an image. You can verify from your Azure console that the image has been successfully created.
 
-4. Execute the command `terraform init` to initialize Terraform within your directory.
-5. Le déploiement de votre infrastructure sur Azure se fait à travers le fichier main.tf. Ce fichier est associé à vars.tf qui contient toutes les variables utilisées pour le déploiement. Vous pouvez spécifier les parametres souhaitées. Par exemple si vous souhaite
+8. Execute the command `terraform init` to initialize Terraform within your directory.
+9. Le déploiement de votre infrastructure sur Azure se fait à travers le fichier main.tf. Ce fichier est associé à vars.tf qui contient toutes les variables utilisées pour le déploiement. Vous pouvez spécifier les parametres souhaitées. Par exemple si vous souhaite
 
-6. Run 
+10. Run 
 ```
 terraform apply \
     -var="prefix=my_prefix" \  # Replace "my_prefix" with your custom prefix, or use the default value "udacity"
@@ -74,15 +74,15 @@ to generate a Terraform execution plan to update your infrastructure based on ch
 If you wish to use the default values for the variables, run `terraform apply "solution.plan"`
 
 
-7.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
+11.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
 
-8. To delete all the resources you have deployed, you can issue the command `terraform destroy`.
+12. To delete all the resources you have deployed, you can issue the command `terraform destroy`.
 
 ## Output
-9. Below, you will find the list of results obtained after executing certain commands:
+13. Below, you will find the list of results obtained after executing certain commands:
 
 
-10. Result of the command `az group create -n udacityResourceGroup -l eastus`
+14. Result of the command `az group create -n udacityResourceGroup -l eastus`
 ```
 {
   "id": "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacityResourceGroup",
@@ -96,7 +96,7 @@ If you wish to use the default values for the variables, run `terraform apply "s
   "type": "Microsoft.Resources/resourceGroups"
 }
 ```
-1.  result of the command 
+15.  result of the command 
 `az policy definition create --name tagging-policy --rules tagging_policy.json`
 ```
 {
