@@ -96,7 +96,7 @@ If you wish to use the default values for the variables, run `terraform apply "s
   "type": "Microsoft.Resources/resourceGroups"
 }
 ```
-10. result of the command 
+1.  result of the command 
 `az policy definition create --name tagging-policy --rules tagging_policy.json`
 ```
 {
