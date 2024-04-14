@@ -69,9 +69,8 @@ terraform apply \
     -var="admin_password=my_passwordSecret" \  # Replace "my_passwordSecret" with your custom password, or use the default value "B@diou2023"
     -var="counter=2" "solution.plan"  # Specify the number of virtual machines to create (in this example, 2)
 ```
-
-    to generate a Terraform execution plan to update your infrastructure based on changes made to your configuration files, and save this plan to a file named solution.plan. This plan can then be reviewed before being applied to the actual infrastructure using the command `terraform apply`. If you wish to use the default parameters, you can omit specifying any of the variables.
-  If you wish to use the default values for the variables, you can simply modify the default values in the vars.tf file
+to generate a Terraform execution plan to update your infrastructure based on changes made to your configuration files, and save this plan to a file named solution.plan. This plan can then be reviewed before being applied to the actual infrastructure using the command `terraform apply`. If you wish to use the default parameters, you can omit specifying any of the variables.
+If you wish to use the default values for the variables, you can simply modify the default values in the vars.tf file
 `terraform apply "solution.plan"`
 
 
