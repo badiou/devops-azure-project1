@@ -74,9 +74,9 @@ to generate a Terraform execution plan to update your infrastructure based on ch
 If you wish to use the default values for the variables, run `terraform apply "solution.plan"`
 
 
-1.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
+7.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
 
-2.  To delete all the resources you have deployed, you can issue the command `terraform destroy`.
+8. To delete all the resources you have deployed, you can issue the command `terraform destroy`.
 
 ## Output
 9. Below, you will find the list of results obtained after executing certain commands:
