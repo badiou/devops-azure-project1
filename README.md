@@ -1,7 +1,7 @@
 # Azure Infrastructure Operations Project: Deploying a Scalable IaaS Web Server in Azure
 
 ## Introduction
-For this project, you will write a Packer template and a Terraform template to deploy a customizable, scalable web server in Azure.
+For this project, you will create a Packer template and a Terraform template to automate the deployment of a flexible and scalable web server infrastructure on Azure. The goal is to streamline the process of provisioning and configuring virtual machines, allowing for easy customization and efficient scaling of resources as needed."
 
 ## Getting Started
 1. Clone this repository
@@ -71,18 +71,32 @@ For this project, you will write a Packer template and a Terraform template to d
 3. Execute the command `packer build server.json` to create an image. You can verify from your Azure console that the image has been successfully created.
 
 4. Execute the command `terraform init` to initialize Terraform within your directory.
+5. Le déploiement de votre infrastructure sur Azure se fait à travers le fichier main.tf. Ce fichier est associé à vars.tf qui contient toutes les variables utilisées pour le déploiement. Vous pouvez spécifier les parametres souhaitées. Par exemple si vous souhaite
 
-5. Run `terraform plan -out solution.plan` to generate a Terraform execution plan to update your infrastructure based on changes made to your configuration files, and save this plan to a file named solution.plan. This plan can then be reviewed before being applied to the actual infrastructure using the command `terraform apply`.
+6. Run 
+```terraform apply \
+    -var="prefix=my_prefix" \  # Replace "my_prefix" with your custom prefix, or use the default value "udacity"
+    -var="location=East US" \   # Replace "East US" with your custom Azure region, or use the default value
+    -var="admin_username=my_username" \  # Replace "my_username" with your custom admin username, or use the default value "ourobadiou"
+    -var="admin_password=my_passwordSecret" \  # Replace "my_passwordSecret" with your custom password, or use the default value "B@diou2023"
+    -var="counter=2" "solution.plan"  # Specify the number of virtual machines to create (in this example, 2)
+```
 
-6.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
+    to generate a Terraform execution plan to update your infrastructure based on changes made to your configuration files, and save this plan to a file named solution.plan. This plan can then be reviewed before being applied to the actual infrastructure using the command `terraform apply`. If you wish to use the default parameters, you can omit specifying any of the variables.
+  If you wish to use the default values for the variables, you can simply modify the default values in the vars.tf file
+`terraform apply "solution.plan"`
 
-7.  To delete all the resources you have deployed, you can issue the command `terraform destroy`.
+
+
+7.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
+
+8.  To delete all the resources you have deployed, you can issue the command `terraform destroy`.
 
 ## Output
-8. Below, you will find the list of results obtained after executing certain commands:
+9. Below, you will find the list of results obtained after executing certain commands:
 
 
-9. Result of the command `az group create -n udacityResourceGroup -l eastus`
+10. Result of the command `az group create -n udacityResourceGroup -l eastus`
 ```
 {
   "id": "/subscriptions/c6b49f87-b44b-4f50-9328-64efe17053d2/resourceGroups/udacityResourceGroup",

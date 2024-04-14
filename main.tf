@@ -45,6 +45,11 @@ resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}-nic-${count.index}"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.internal.id
+    private_ip_address_allocation = "Dynamic"
+  }
   tags = {
     project_name = "udacity-project",
     stage        = "Submission"
@@ -85,6 +90,17 @@ resource "azurerm_network_security_group" "main" {
   name                = "acceptanceTestSecurityGroup1"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
+  security_rule {
+    name                       = "Inbound-DeniedAll"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
   tags = {
     project_name = "udacity-project",
     stage        = "Submission"
@@ -122,7 +138,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 
   source_image_reference {
     publisher = "canonical"
-    offer     = "UbuntuServer"
+    offer     = "myPackerImage" 
     sku       = "18.04-LTS"
     version   = "latest"
   }
