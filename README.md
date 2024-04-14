@@ -71,9 +71,7 @@ terraform apply \
 ```
 to generate a Terraform execution plan to update your infrastructure based on changes made to your configuration files, and save this plan to a file named solution.plan. 
 
-If you wish to use the default values for the variables, you can simply modify the default values in the vars.tf file
-`terraform apply "solution.plan"`
-
+If you wish to use the default values for the variables, run `terraform apply "solution.plan"`
 
 
 1.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
