@@ -58,9 +58,8 @@ For this project, you will create a Packer template and a Terraform template to 
 7. Execute the command `packer build server.json` to create an image. You can verify from your Azure console that the image has been successfully created.
 
 8. Execute the command `terraform init` to initialize Terraform within your directory.
-9. Le déploiement de votre infrastructure sur Azure se fait à travers le fichier main.tf. Ce fichier est associé à vars.tf qui contient toutes les variables utilisées pour le déploiement. Vous pouvez spécifier les parametres souhaitées. Par exemple si vous souhaite
 
-10. Run 
+9.  Run 
 ```
 terraform apply \
     -var="prefix=my_prefix" \  # Replace "my_prefix" with your custom prefix, or use the default value "udacity"
@@ -69,17 +68,17 @@ terraform apply \
     -var="admin_password=my_passwordSecret" \  # Replace "my_passwordSecret" with your custom password, or use the default value "B@diou2023"
     -var="counter=2" "solution.plan"  # Specify the number of virtual machines to create (in this example, 2)
 ```
-to generate a Terraform execution plan to update your infrastructure based on changes made to your configuration files, and save this plan to a file named solution.plan. 
+to generate a Terraform execution plan to update your infrastructure based on changes made to your configuration files, and save this plan to a file named solution.plan. vars.tf file define all variables.
 
 If you wish to use the default values for the variables, run `terraform apply "solution.plan"`
 
 
-11.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
+10.  Execute the command `terraform apply "solution.plan"` to apply the plan to your Azure infrastructure.
 
-12. To delete all the resources you have deployed, you can issue the command `terraform destroy`.
+11. To delete all the resources you have deployed, you can issue the command `terraform destroy`.
 
 ## Output
-13. Below, you will find the list of results obtained after executing certain commands:
+12. Below, you will find the list of results obtained after executing certain commands:
 
 
 - Result of the command `az group create -n udacityResourceGroup -l eastus`
